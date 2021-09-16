@@ -36,7 +36,7 @@ public class ProductRepository {
 		listOfProducts.add(tablet);
 	}
 	
-	public ArrayList<Product> getALLProducts(){
+	public ArrayList<Product> getAllProducts(){
 	return listOfProducts;
 	}
 	
