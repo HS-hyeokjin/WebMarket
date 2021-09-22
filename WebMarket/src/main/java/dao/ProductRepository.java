@@ -40,4 +40,17 @@ public class ProductRepository {
 	return listOfProducts;
 	}
 	
-}
+	public Product getProductById(String productId) {         //저장된 모든 상품 목록에서 상품 아이디와 일치하는 상품을 가져오는 메소드
+		Product productById = null;
+		
+		for (int i=0; i<listOfProducts.size(); i++) {
+			Product product = listOfProducts.get(i);
+			if (product != null && product.getProductId() != null && product.getProductId().equals(productId)) {
+				productById = product;
+				break;
+			}
+		}
+		return productById;
+		}
+		
+	}

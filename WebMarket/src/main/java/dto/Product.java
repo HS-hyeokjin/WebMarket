@@ -31,10 +31,6 @@ public class Product implements Serializable {
 		return productId;
 	}
 
-	public void setProductId(String productId) {
-		this.productId = productId;
-	}
-
 	public String getPname() {
 		return pname;
 	}
@@ -85,6 +81,13 @@ public class Product implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	
+	public long getUnitsInStock() {
+		return unitsInStock;
+	}
+	public void setUnitsInStock(long unitsInStock) {
+		this.unitsInStock = unitsInStock;
 	}
 }
 
