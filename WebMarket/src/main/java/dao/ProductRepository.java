@@ -7,7 +7,12 @@ import dto.Product;
 public class ProductRepository {
 
 	private ArrayList<Product> listOfProducts = new ArrayList<Product>(); //상품목록 저장
-		
+	private static ProductRepository instance = new ProductRepository();   //클래스의 기본 생성자에 대한 객체 변수 instance 
+	
+	public static ProductRepository getInstance() {							//instance에 대한 Getter()메소드
+		return instance;
+	}
+	
 	public ProductRepository() {
 		
 		Product phone = new Product("P1234","iphone 6s", 800000);
@@ -53,4 +58,7 @@ public class ProductRepository {
 		return productById;
 		}
 		
+	public void addProduct(Product product) {                   //list에 새로운 상품 정보를 등록하는 addProduct()메소드 작성
+		listOfProducts.add(product);
+	}
 	}
