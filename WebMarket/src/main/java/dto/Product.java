@@ -30,7 +30,11 @@ public class Product implements Serializable {
 	public String getProductId() {
 		return productId;
 	}
-
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	
+	
 	public String getPname() {
 		return pname;
 	}

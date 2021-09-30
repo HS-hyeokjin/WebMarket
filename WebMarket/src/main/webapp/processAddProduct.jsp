@@ -31,5 +31,16 @@
 	
 	ProductRepository dao = ProductRepository.getInstance();
 	
+	Product newProduct = new Product();
+	newProduct.setProductId(productId);
+	newProduct.setPname(name);
+	newProduct.setUnitPrice(price);
+	newProduct.setDescription(description);
+	newProduct.setManufacturer(category);
+	newProduct.setCategory(category);
+	newProduct.setCondition(condition);
+
+	dao.addProduct(newProduct);
 	
-		
+	response.sendRedirect("products.jsp");
+%>
