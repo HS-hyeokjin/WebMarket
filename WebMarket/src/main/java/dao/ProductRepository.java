@@ -1,13 +1,13 @@
-package dao;
-
+package dao;  //데이터 전송 객체
 
 import java.util.ArrayList;
+
 import dto.Product;
 
-public class ProductRepository {
+public class ProductRepository {         //상품 접근 클래스
 
 	private ArrayList<Product> listOfProducts = new ArrayList<Product>(); //상품목록 저장
-	private static ProductRepository instance = new ProductRepository();   //클래스의 기본 생성자에 대한 객체 변수 instance 
+	private static ProductRepository instance = new ProductRepository();   //클래스의 기본 생성자에 대한 객체 변수 instance 생성
 	
 	public static ProductRepository getInstance() {							//instance에 대한 Getter()메소드
 		return instance;
@@ -45,7 +45,7 @@ public class ProductRepository {
 	return listOfProducts;
 	}
 	
-	public Product getProductById(String productId) {         //저장된 모든 상품 목록에서 상품 아이디와 일치하는 상품을 가져오는 메소드
+	public Product getProductById(String productId) {           //listOfProducts에 저장된 모든 상품 목록에서 상품 아이디와 일치하는 상품을 가져오는 getProductById메소드
 		Product productById = null;
 		
 		for (int i=0; i<listOfProducts.size(); i++) {

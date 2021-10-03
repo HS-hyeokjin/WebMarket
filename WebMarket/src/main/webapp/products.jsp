@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="EUC-KR"%>
+<!DOCTYPE html>  <!-- 상품 목록 출력 페이지-->
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="EUC-KR"%>   
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Product" %>
 <%@ page import="dao.ProductRepository" %>
 
-<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session" />
-
 <html>
 <head>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <meta charset="EUC-KR">
 <title>상품 목록</title>
 </head>
@@ -20,21 +17,22 @@
  			<h1 class = "display-3">상품 목록</h1>
  		</div>
  	</div>
+ 	<!--기존에 작서된 useBean 삭제/ProductRepository 클래스의 객체 변수 instance를 호출하는 getInstance()메소드 작성, 이를 통행 getAllProducts()메소드를 호출하여 반한결과값을 ListOfProducts에 저장-->
  	<% 
-    	ProductRepository dao = ProductRepository.getInstance();
-    	ArrayList<Product> listOfProducts = dao.getAllProducts();
+    	ProductRepository dao = ProductRepository.getInstance();        
+    	ArrayList<Product> listOfProducts = dao.getAllProducts();        
     %>
   		<div class="container">
-  		<div class="row" align="center"></div>
+  		<div class="row" align="center">
   		<%
   			for (int i = 0; i < listOfProducts.size(); i++){
   				Product product = listOfProducts.get(i);
   		%>
-  		<div class="col-md-4"></div>
+  		<div class="col-md-4">
   		<h3><%=product.getPname() %></h3>
   		<p><%=product.getDescription()%>
   		<p><%=product.getUnitPrice() %>원
-  		<p><a href="./product.jsp?id=<%=product.getProductId()%>" %>
+  		<p><a href="./product.jsp?id=<%=product.getProductId()%>" %>    <%-- 상품 상세정보 버튼 --%>
   		class="btn btn-secondary" role="button"> 상세 정보 &raquo;></a>
   		</div>
   		<%

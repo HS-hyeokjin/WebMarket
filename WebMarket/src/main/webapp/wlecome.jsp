@@ -6,7 +6,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>welcome</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 	<%@ include file = "menu.jsp" %>
@@ -24,11 +24,11 @@
 	<div class = "container">
 		<div class = "text-center">
 			<h3>
-					<%= tagline %>
+			<%= tagline %>
 			</h3>
 			<%
-			response.setIntHeader("Refresh", 5);
-			Date day = new java.util.Date();
+			response.setIntHeader("Refresh",5);            //5초마다 JSP페이지가 갱신되도록 reponse 내장 객체의 setIntHeader() 메소드 사용
+			Date day = new java.util.Date();               //현재시간 출력 인스턴스 day 생성
 			String am_pm;
 			int hour = day.getHours();
 			int minute = day.getMinutes();

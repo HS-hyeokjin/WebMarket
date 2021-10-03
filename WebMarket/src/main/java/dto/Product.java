@@ -1,4 +1,4 @@
-package dto;
+package dto;                //상품 클래스
 
 import java.io.Serializable;
 
@@ -7,21 +7,21 @@ public class Product implements Serializable {
 	private static final long serialVersionUID = -4274700572038677000L;
 	
 	
-	private String productId;
-	private String pname;
-	private Integer unitPrice; 
-	private String description;
-	private String manufacturer;
-	private String category;
-	private long unitsInStock;
-	private String condition;
+	private String productId;                   //상품 id
+	private String pname;						//상품 이름
+	private Integer unitPrice; 					//상품가격
+	private String description;					//설명
+	private String manufacturer;				//제조사
+	private String category;					//분류
+	private long unitsInStock;					//재고 수
+	private String condition;					//신상 or 중고 or 재생품
 
 	
 	public Product() {
 		super();
 	}
 	
-	public Product(String productId, String pname, Integer unitPrice) {
+	public Product(String productId, String pname, Integer unitPrice) {     //기본 생성자
 		this.productId = productId;
 		this.pname = pname;
 		this.unitPrice = unitPrice;

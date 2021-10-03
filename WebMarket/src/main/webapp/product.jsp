@@ -1,13 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+ <%-- 상품상세 정보 페이지 --%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="dto.Product" %>
 <%@ page import="dao.ProductRepository" %>
 
-<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session"/>
+<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session"/>  
 <html>
 <head>
-<link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <title>상품 상세 정보</title>
 </head>
 <body>
@@ -18,9 +17,10 @@
         </div>
     </div>
     <%
-        String id=request.getParameter("id");
+        String id=request.getParameter("id");             //상품 목록 페이지로부터 전달되는 상품 아이디를 전송받도록 request 내장 객체의 getParameter()메소드 사용           
 		ProductRepository dao = ProductRepository.getInstance();
-		Product product = dao.getProductById(id);
+		Product product = dao.getProductById(id);        
+		//useBean 태그에 id 속성 값을 통해 ProductRepository 클래스의 getProductById()메소드를 호출하여 반환된 결과값을 Product 객체 타입의 변수 product 에 저장
     %>
 
     <div class="container">

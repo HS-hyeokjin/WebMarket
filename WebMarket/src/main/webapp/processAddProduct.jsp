@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%-- 신규상품 등록 페이지 --%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="dto.Product" %>
 <%@ page import="dao.ProductRepository" %>
 
@@ -29,7 +29,7 @@
 	else
 		stock = Long.valueOf(unitsInStock);
 	
-	ProductRepository dao = ProductRepository.getInstance();
+	ProductRepository dao = ProductRepository.getInstance();        //폼페이지에서 입력된 데이터를 저장하도록 addProduct() 메소드 호출
 	
 	Product newProduct = new Product();
 	newProduct.setProductId(productId);
@@ -42,5 +42,5 @@
 
 	dao.addProduct(newProduct);
 	
-	response.sendRedirect("products.jsp");
+	response.sendRedirect("products.jsp");             //페이지 강제 이동
 %>

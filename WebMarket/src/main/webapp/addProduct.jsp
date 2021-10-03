@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%-- 상품 등록 페이지 --%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="dto.Product" %>
 <jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session"/>
 <html>
@@ -15,8 +15,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<form name="newProduct" action="./preocessAddProdict.jsp" class="form=
-		horizontal" method="post">
+		<form name="newProduct" action="./preocessAddProdict.jsp" class="form=horizontal" method="post">  <%--입력 양식에 입력된 데이터를 서버로 전송하여 폼 데이터를 처리하도록 form태그--%>
 			<div class="form-group row">
 				<label class="col-sm-2">상품 코드</label>
 				<div class="col-sm-3">
@@ -73,7 +72,7 @@
 			</div>
 			<div class="form-group row">
 				<div class="col-sm-offset-2 col-sm-10 ">
-					<input type="submit" class="btn btn-primary" value="등록">
+					<input type="submit" class="btn btn-primary" value="등록">   <%-- 입력된 데이터를 저장하도록 input태그의 type 속성값을 submit --%>
 					</div>
 				</div>
 			</form>
