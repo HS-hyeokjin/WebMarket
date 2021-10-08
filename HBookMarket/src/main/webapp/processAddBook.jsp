@@ -2,12 +2,7 @@
 <%@ page import="dto.Book"%>
 <%@ page import="dao.BookRepository"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
+
 <%
 	request.setCharacterEncoding("utf-8");
 	
@@ -27,16 +22,21 @@
 	
 	if(unitPrice.isEmpty())
 		price=0;
+	
 	else price=Integer.valueOf(unitPrice);
 	
 	long stock;
+	
 	if(unitsInStock.isEmpty())
 		stock=0;
+	
 	else stock=Long.valueOf(unitsInStock);
 	
 	long pages;
+	
 	if(unitsInStock.isEmpty())
 		pages=0;
+	
 	else pages=Long.valueOf(totalPages);
 	
 	

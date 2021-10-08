@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Book" %>
+<%@page import="dao.BookRepository"%>
 <jsp:useBean id="BookDAO" class="dao.BookRepository" scope="session"/>
 <html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -20,8 +21,10 @@
         </h1>
     </div>
 </div>
-<%ArrayList<Book> listOfBooks=BookDAO.getAllProducts(); %>
-
+	<%
+	ArrayList<Book> listOfBooks=BookDAO.getAllProducts(); 
+	BookRepository dao = BookRepository.getInstance();
+	%>
         <div class="col" align="left">
             <%for(int i=0;i<listOfBooks.size();i++){
                 Book book=listOfBooks.get(i);

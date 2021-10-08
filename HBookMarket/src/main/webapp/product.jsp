@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import="dto.Book" %>
+<%@page import="dao.BookRepository" %>
 <jsp:useBean id="productDAO" class="dao.BookRepository" scope="session"/>
 <html>
 <head>
-<link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 <title>상품 상세 정보</title>
 </head>
 <body>
@@ -17,7 +17,8 @@
     </div>
     <%
         String id=request.getParameter("id");
-    Book book=productDAO.getBookById(id);
+		BookRepository dao=BookRepository.getInstance();
+    	Book book=productDAO.getBookById(id);
     %>
     <div class="container">
         <div class="row">

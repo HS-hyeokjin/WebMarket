@@ -7,8 +7,14 @@ import dto.Book;
 public class BookRepository {
     
 	ArrayList<Book>listOfBooks=new ArrayList<Book>();
+
+		private static BookRepository instance= new BookRepository();
+		
+		public static BookRepository getInstance() {
+			return instance;
+		}
     
-    public BookRepository(){
+		public BookRepository(){
         
         Book b1=new Book("Num1","HTML5+CSS",15000);
         b1.setDescription("워드나 PPT문서를 만들수 있나요? 그러면 문제 없습니다. 지금 바로 웹페이지에 도전하세요.");
@@ -41,9 +47,11 @@ public class BookRepository {
         listOfBooks.add(b2);
         listOfBooks.add(b3);
     }
+    
     public ArrayList<Book> getAllProducts(){
         return listOfBooks;
     }
+    
     public Book getBookById(String BookId) {
     	Book bookById = null;
     	for (int i = 0; i<listOfBooks.size();i++) {
@@ -55,4 +63,9 @@ public class BookRepository {
     	}
     	return bookById;
     }
+    
+	public void addProduct(Book book)
+	{
+		listOfBooks.add(book);
+	}
 }
