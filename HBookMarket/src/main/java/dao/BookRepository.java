@@ -54,6 +54,7 @@ public class BookRepository {
     
     public Book getBookById(String BookId) {
     	Book bookById = null;
+    	
     	for (int i = 0; i<listOfBooks.size();i++) {
     		Book book = listOfBooks.get(i);
     		if(book != null && book.getBookId() != null && book.getBookId().equals(BookId)) {
@@ -64,8 +65,7 @@ public class BookRepository {
     	return bookById;
     }
     
-	public void addProduct(Book book)
-	{
+	public void addBook(Book book){
 		listOfBooks.add(book);
 	}
 }

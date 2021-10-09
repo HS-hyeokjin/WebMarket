@@ -8,14 +8,14 @@
 	
 	String bookId=request.getParameter("BookId");
 	String name=request.getParameter("name");
-	String unitPrice=request.getParameter("price");
+	String unitPrice=request.getParameter("unitPrice");
 	String author=request.getParameter("author");
 	String publisher=request.getParameter("publisher");
 	String releaseDate=request.getParameter("releaseDate");
-	String totalPages=request.getParameter("Pages");
+	String totalPages=request.getParameter("totalPages");
 	String description=request.getParameter("description");
 	String category=request.getParameter("category");
-	String unitsInStock=request.getParameter("Stock");
+	String unitsInStock=request.getParameter("unitsInStock");
 	String condition=request.getParameter("condition");
 	
 	Integer price;
@@ -42,21 +42,20 @@
 	
 	BookRepository dao=BookRepository.getInstance();
 	
-	Book newProduct=new Book();
-	newProduct.setBookId(bookId);
-	newProduct.setName(name);
-	newProduct.setprice(price);
-	newProduct.setAuthor(author);
-	newProduct.setPublisher(publisher);
-	newProduct.setReleaseDate(releaseDate);
-	newProduct.setPages(pages);
-	newProduct.setDescription(description);
-	newProduct.setCategory(category);
-	newProduct.setStock(stock);
-	newProduct.setCondition(condition);
-	dao.addProduct(newProduct);
-	response.sendRedirect("products.jsp");
+	Book newBook=new Book();
+	newBook.setBookId(bookId);
+	newBook.setName(name);
+	newBook.setprice(price);
+	newBook.setAuthor(author);
+	newBook.setPublisher(publisher);
+	newBook.setReleaseDate(releaseDate);
+	newBook.setPages(pages);
+	newBook.setDescription(description);
+	newBook.setCategory(category);
+	newBook.setStock(stock);
+	newBook.setCondition(condition);
 	
-%>
-</body>
-</html>
+	dao.addBook(newBook);
+	
+	response.sendRedirect("products.jsp");  
+	%>

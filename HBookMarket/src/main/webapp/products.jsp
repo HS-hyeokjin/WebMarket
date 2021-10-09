@@ -22,8 +22,8 @@
     </div>
 </div>
 	<%
-	ArrayList<Book> listOfBooks=BookDAO.getAllProducts(); 
 	BookRepository dao = BookRepository.getInstance();
+	ArrayList<Book> listOfBooks = dao.getAllProducts();
 	%>
         <div class="col" align="left">
             <%for(int i=0;i<listOfBooks.size();i++){
