@@ -17,17 +17,16 @@
 
 	Integer price;
 	
-	if (unitPrice.isEmpty())
+	if (unitPrice.isEmpty())     	//폼페이지에 상품이 입력되지 않은 경우 0 으로 입력된 경우 정수형으로 변환
 		price = 0;
 	else
 		price = Integer.valueOf(unitPrice);
 	
 	long stock;
 
-	if (unitsInStock.isEmpty())
+	if (unitsInStock.isEmpty())		//폼페이지에 재고수가 입력되지 않은 경우 0 으로 입력된 경우 정수형으로 변환
 		stock = 0;
-	else
-		stock = Long.valueOf(unitsInStock);
+	else stock = Long.valueOf(unitsInStock);
 	
 	ProductRepository dao = ProductRepository.getInstance();        //폼페이지에서 입력된 데이터를 저장하도록 addProduct() 메소드 호출
 	

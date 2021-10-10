@@ -15,7 +15,7 @@
 		</div>
 	</div>
 	<div class="container">
-		<form name="newProduct" action="./preocessAddProdict.jsp" class="form=horizontal" method="post">  <%--입력 양식에 입력된 데이터를 서버로 전송하여 폼 데이터를 처리하도록 form태그--%>
+		<form name="newProduct" action="./processAddProduct.jsp" class="form=horizontal" method="post">  <%--입력 양식에 입력된 데이터를 서버로 전송하여 폼 데이터를 처리하도록 form태그--%>
 			<div class="form-group row">
 				<label class="col-sm-2">상품 코드</label>
 				<div class="col-sm-3">
@@ -77,5 +77,6 @@
 				</div>
 			</form>
 		</div>
+<jsp:include page="footer.jsp"/>		
 </body>
 </html>
