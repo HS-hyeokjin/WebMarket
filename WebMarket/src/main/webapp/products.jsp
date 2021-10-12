@@ -1,47 +1,88 @@
-<!DOCTYPE html>  <!-- »óÇ° ¸ñ·Ï Ãâ·Â ÆäÀÌÁö-->
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="EUC-KR"%>   
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="dto.Product" %>
+<!DOCTYPE html>  <!-- ìƒí’ˆ ëª©ë¡ ì¶œë ¥ í˜ì´ì§€-->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="dto.Product"%>
 <%@ page import="dao.ProductRepository" %>
-
+<jsp:useBean id="productDAO" class="dao.ProductRepository"
+	scope="session" />
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-<meta charset="EUC-KR">
-<title>»óÇ° ¸ñ·Ï</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ìƒí’ˆ ëª©ë¡</title>
+<style>
+.main .content .row {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap : wrap;
+}
+
+.main .content .row .column {
+	width: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 15px 0;
+}
+
+.main .content .row .column h3, .main .content .row .column p {
+	text-align: center;
+	padding: 10px;
+}
+
+.main .content .row .column h3 {
+	font-size: 1.7rem;
+	font-weight: 400;
+}
+</style>
+<%!String greenting = "ìƒí’ˆëª©ë¡";%>
 </head>
 <body>
-	<jsp:include page="menu.jsp" />
-	<div class="jumbotron">
-  		<div class="container">
- 			<h1 class = "display-3">»óÇ° ¸ñ·Ï</h1>
- 		</div>
- 	</div>
- 	<!--±âÁ¸¿¡ ÀÛ¼­µÈ useBean »èÁ¦/ProductRepository Å¬·¡½ºÀÇ °´Ã¼ º¯¼ö instance¸¦ È£ÃâÇÏ´Â getInstance()¸Ş¼Òµå ÀÛ¼º, ÀÌ¸¦ ÅëÇà getAllProducts()¸Ş¼Òµå¸¦ È£ÃâÇÏ¿© ¹İÇÑ°á°ú°ªÀ» ListOfProducts¿¡ ÀúÀå-->
- 	<% 
-    	ProductRepository dao = ProductRepository.getInstance();        
-    	ArrayList<Product> listOfProducts = dao.getAllProducts();        
-    %>
-  		<div class="container">
-  		<div class="row" align="center">
-  		<%
-  			for (int i = 0; i < listOfProducts.size(); i++){
-  				Product product = listOfProducts.get(i);
-  		%>
-  		<div class="col-md-4">
-  		<h3><%=product.getPname() %></h3>
-  		<p><%=product.getDescription()%>
-  		<p><%=product.getUnitPrice() %>¿ø
-  		<p><a href="./product.jsp?id=<%=product.getProductId()%>" %>    <%-- »óÇ° »ó¼¼Á¤º¸ ¹öÆ° --%>
-  		<class="btn btn-secondary" role="button"> »ó¼¼ Á¤º¸ &raquo;></a>
-  		</div>
-  		<%
-  		}
-  		%>
-  		</div>
-  		<hr>
-  		</div>
-  		<jsp:include page="footer.jsp" />
-  			
+	<jsp:include page="header.jsp" />
+
+	<div class="main">
+
+		<div class="banner">
+			<div class="container">
+				<h1><%=greenting%></h1>
+			</div>
+		</div>
+
+		<div class="content">
+			<%
+				ProductRepository dao = ProductRepository.getInstance();
+				ArrayList<Product>listOfProducts = dao.getAllProducts();
+			%>
+			<div class="container">
+				<div class="row">
+					<%
+
+						for (int i = 0; i < listOfProducts.size(); i++) {
+							Product product = listOfProducts.get(i);
+					%>
+					<div class="column">
+						<img src="c:/upload/<%=product.getFilename()%>" alt="ìƒí’ˆì‚¬ì§„" style="width:100%">
+						<h3><%=product.getPname()%></h3>
+						<p><%=product.getDescription()%></p>
+						<p><%=product.getUnitPrice()%>ì›
+						</p>
+						<p>
+							<a href="./product.jsp?id=<%=product.getProductId()%>"
+								class="btn" role="button">ìƒì„¸ ì •ë³´&raquo;</a>
+					</div>
+					<%
+						}
+					%>
+				</div>
+				<hr>
+			</div>
+		</div>
+
+
+	</div>
+
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
