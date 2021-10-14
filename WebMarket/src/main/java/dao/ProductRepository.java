@@ -21,6 +21,7 @@ public class ProductRepository {         //상품 접근 클래스
 		phone.setManufacturer("Apple");
 		phone.setUnitPrice(1000);
 		phone.setCondition("New");
+		phone.setFilename("P1234.png");
 	
 		Product notebook = new Product("P1235","LG PC 그램", 1500000);
 		notebook.setDescription("13-inch, 1334X643 ips HD display, 60xel iSCamera");
@@ -28,13 +29,15 @@ public class ProductRepository {         //상품 접근 클래스
 		notebook.setManufacturer("LG");
 		notebook.setUnitPrice(1000);
 		notebook.setCondition("Refurubished");
-	
+		notebook.setFilename("P1235.png");
+		
 		Product tablet = new Product("P1235","Galaxy Tab s", 900000);
 		tablet.setDescription("212.8*125.6.6mm, Super amoled dsplay, Octa");
 		tablet.setCategory("Tablet");
 		tablet.setManufacturer("Samsung");
 		tablet.setUnitPrice(1000);
-		notebook.setCondition("Old");
+		tablet.setCondition("Old");
+		tablet.setFilename("P1236.png");
 		
 		listOfProducts.add(phone);
 		listOfProducts.add(notebook);
