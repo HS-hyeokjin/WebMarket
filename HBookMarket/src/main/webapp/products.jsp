@@ -5,7 +5,7 @@
 <%@page import="dao.BookRepository"%>
 <jsp:useBean id="BookDAO" class="dao.BookRepository" scope="session"/>
 <html>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <head>
 <title>도서 목록</title>
 </head>    
@@ -25,13 +25,16 @@
 	BookRepository dao = BookRepository.getInstance();
 	ArrayList<Book> listOfBooks = dao.getAllProducts();
 	%>
+        <style> img{float : left}</style>
         <div class="col" align="left">
             <%for(int i=0;i<listOfBooks.size();i++){
                 Book book=listOfBooks.get(i);
             %>
-            <div class="col-lg">
-                <h4>[<%=book.getCategory() %>] <%=book.getName() %></h4><p>
-                <p><%=book.getDescription()%>
+            <div class="col-md-4">
+              	<img src="c:/upload/<%=book.getFilename()%>" style= "width : 40%">      <%--이미지 포함 --%>
+                <h3>[<%=book.getCategory() %>] <%=book.getName() %></h3><p>
+                <p>
+                <%=book.getDescription()%>
                 <a href="./product.jsp?id=<%=book.getBookId() %>"
                 class="btn btn-secondary rold="button">상세 정보 &raquo</a>
                 <p><%=book.getAuthor() %>|<%=book.getPublisher() %>|<%=book.getprice() %>

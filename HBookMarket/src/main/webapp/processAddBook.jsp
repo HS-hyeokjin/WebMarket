@@ -1,22 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page import="com.oreilly.servlet.*" %>
+<%@ page import="com.oreilly.servlet.multipart.*" %>
+<%@ page import="java.util.*" %>			
 <%@ page import="dto.Book"%>
 <%@ page import="dao.BookRepository"%>
 <!DOCTYPE html>
 
-<%
-	request.setCharacterEncoding("utf-8");
+<%	
+request.setCharacterEncoding("UTF-8");
+
+String filename = "";
+String realFolder = "C:\\upload"; 			
+int maxSize = 5*1024*1024; 					
+String encType = "utf-8"; 					
+
+MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, 
+		new DefaultFileRenamePolicy());
+
 	
-	String bookId=request.getParameter("BookId");
-	String name=request.getParameter("name");
-	String unitPrice=request.getParameter("unitPrice");
-	String author=request.getParameter("author");
-	String publisher=request.getParameter("publisher");
-	String releaseDate=request.getParameter("releaseDate");
-	String totalPages=request.getParameter("totalPages");
-	String description=request.getParameter("description");
-	String category=request.getParameter("category");
-	String unitsInStock=request.getParameter("unitsInStock");
-	String condition=request.getParameter("condition");
+	String bookId=multi.getParameter("BookId");
+	String name=multi.getParameter("name");
+	String unitPrice=multi.getParameter("unitPrice");
+	String author=multi.getParameter("author");
+	String publisher=multi.getParameter("publisher");
+	String releaseDate=multi.getParameter("releaseDate");
+	String totalPages=multi.getParameter("totalPages");
+	String description=multi.getParameter("description");
+	String category=multi.getParameter("category");
+	String unitsInStock=multi.getParameter("unitsInStock");
+	String condition=multi.getParameter("condition");
 	
 	Integer price;
 	
@@ -39,6 +51,9 @@
 	
 	else pages=Long.valueOf(totalPages);
 	
+	Enumeration files = multi.getFileNames();			//파일 받도록 getFileNames() 메소드 작성
+	String fname = (String)files.nextElement();			
+	String fileName = multi.getFilesystemName(fname);
 	
 	BookRepository dao=BookRepository.getInstance();
 	
@@ -54,6 +69,8 @@
 	newBook.setCategory(category);
 	newBook.setStock(stock);
 	newBook.setCondition(condition);
+	newBook.setFilename(fileName);
+	
 	
 	dao.addBook(newBook);
 	

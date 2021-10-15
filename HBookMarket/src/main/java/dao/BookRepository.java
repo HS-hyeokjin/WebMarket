@@ -24,6 +24,8 @@ public class BookRepository {
         b1.setPages(268);
         b1.setStock(1500);
         b1.setReleaseDate("2018/03/07");
+		b1.setFilename("Num1.png");
+
         
         Book b2=new Book("Num2","쉽게 배우는 자바 프로그래밍",27000);
         b2.setDescription("객체 지향의 핵심과 자바의 현대적 기능을 다루면서 초보자가 쉽게 학습할 수 있습니다.");
@@ -33,6 +35,7 @@ public class BookRepository {
         b2.setPages(308);
         b2.setStock(2000);
         b2.setReleaseDate("2016/09/01");
+        b2.setFilename("Num2.png");
         
         Book b3=new Book("Num3","스프링4 입문",27000);
         b3.setDescription("스프링은 단순히 사용 방법만 익히는것보다 아키텍쳐를 이해하는게 중요합니다!");
@@ -42,6 +45,7 @@ public class BookRepository {
         b3.setPages(189);
         b3.setStock(3000);
         b3.setReleaseDate("2019/05/03");
+        b3.setFilename("Num3.png");
         
         listOfBooks.add(b1);
         listOfBooks.add(b2);
