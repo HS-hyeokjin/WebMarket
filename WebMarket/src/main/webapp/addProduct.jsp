@@ -1,91 +1,89 @@
-<%-- 상품 등록 페이지 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="dto.Product" %>
-<jsp:useBean id="productDAO" class="dao.ProductRepository" scope="session"/>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>상품 등록</title>
+<style>
+.inputRow {
+	margin: 15px 0px;
+	display: flex;
+	align-items : center;
+}
+
+.inputRow label {
+	width : 150px;
+}
+
+.inputRow input, .inputRow textarea {
+	font-size: 1.3rem;
+}
+.inputRow input.btn {
+	font-size: 1rem;
+	padding : 5px 15px;
+}
+</style>
+<script type="text/javascript" src="./resources/js/validate.js">
+</script>
 </head>
 <body>
-	<jsp:include page="menu.jsp" />
-	<div class="jumbotron">
-		<div class="container">
-			<h1 class="display=3">상품 등록</h1>
+	<jsp:include page="header.jsp" />
+
+	<div class="main">
+		<div class="banner">
+			<div class="container">
+				<h1>상품 등록</h1>
+			</div>
+		</div>
+
+		<div class="content">
+			<div class="container">
+				<form name="newProduct" action="./processAddProduct.jsp"
+					class="form-horizontal" method="post" enctype="multipart/form-data">
+					<div class="inputRow">
+						<label for="productId">상품 코드</label> <input type="text"
+							name="productId" id="productId">
+					</div>
+					<div class="inputRow">
+						<label for="name">상품 명</label> <input type="text" name="name" id ="name">
+					</div>
+					<div class="inputRow">
+						<label for="unitPrice">가격</label> <input type="text" name="unitPrice" id="unitPrice">
+					</div>
+					<div class="inputRow">
+						<label for="description">상세 정보</label>
+						<textarea name="description" cols="50" rows="2" id="description">
+							</textarea>
+					</div>
+					<div class="inputRow">
+						<label for="manufacturer">제조사</label> <input type="text" name="manufacturer" id="manufacturer">
+					</div>
+					<div class="inputRow">
+						<label for="category">분류</label> <input type="text" name="category" id="category">
+					</div>
+					<div class="inputRow">
+						<label for="unitStock">재고 수</label> <input type="text" name="unitInStock" id="unitStock">
+					</div>
+					<div class="inputRow">
+						<label>상태</label> 
+						<label><input type="radio" name="condition" value="New"> 신규 제품</label> 
+						<label><input type="radio" name="condition" value="Old"> 중고 제품</label>
+						<label><input type="radio" name="condition" value="Refurbished"> 재생 제품</label>
+					</div>
+					<div class="inputRow">
+						<label for="productImage">이미지</label>
+						<input type="file" name="productImage" id="productImage">
+					</div>
+					<div class="inputRow">
+						<input type="button" value="등록" class="btn btn-secondary" onclick="CheckAddProduct()">
+					</div>
+				</form>
+				<hr>
+			</div>
 		</div>
 	</div>
-	<div class="container">
-			<%--입력 양식에 입력된 데이터를 서버로 전송하여 폼 데이터를 처리하도록 form태그--%>
-		<form name="newProduct" action="./processAddProduct.jsp" class="form=horizontal" method="post" enctype="multipart/form-data">  
-			<div class="form-group row">
-				<label class="col-sm-2">상품 코드</label>
-				<div class="col-sm-3">
-					<input type="text" name="productId" class="form-
-					control">
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-2">상품명</label>
-				<div class="col-sm-3">
-					<input type="text" name="name" class="form-control">
-				</div>
-			</div>
-				<div class="form-group row">
-				<label class="col-sm-2">가격</label>
-				<div class="col-sm-3">
-					<input type="text" name="unitPrice" class="form-control">
-				</div>
-			</div>
-				<div class="form-group row">
-				<label class="col-sm-2">상세 정보</label>
-				<div class="col-sm-5">
-					<textarea name="description" cols="50" rows="2" class="form-control"></textarea>			
-				</div>
-			</div>
-				<div class="form-group row">
-				<label class="col-sm-2">제조사</label>
-				<div class="col-sm-3">
-					<input type="text" name="manufacturer" class="form- control">
-				</div>
-			</div>
-				<div class="form-group row">
-				<label class="col-sm-2">분류</label>
-				<div class="col-sm-3">
-					<input type="text" name="category" class="form- control">
-				</div>
-			</div>
-				<div class="form-group row">
-				<label class="col-sm-2">재고 수</label>
-				<div class="col-sm-3">
-					<input type="text" name="unitsInStock" class="form- control">
-				</div>
-			</div>
-				<div class="form-group row">
-				<label class="col-sm-2">상태</label>
-				<div class="col-sm-5">
-					<input type="radio" name="condition" value="New ">
-					신규 제품
-					<input type="radio" name="condition" value="Old ">
-					중고 제품					
-					<input type="radio" name="condition" value="Refurbished" ">
-					재생 제품
-				</div>
-			</div>
-			<div class="form-group row">
-				<label class="col-sm-2">이미지</label>
-				<div class="col-sm-5">
-					<input type="file" name="productImage" class="form-control">    <%-- 파일입력빋도록 input태그의 type 속성 값을 file로 작성 --%>
-					</div>
-				</div>
-			
-			
-			<div class="form-group row">
-				<div class="col-sm-offset-2 col-sm-10 ">
-					<input type="submit" class="btn btn-primary" value="등록">   <%-- 입력된 데이터를 저장하도록 input태그의 type 속성값을 submit --%>
-					</div>
-				</div>
-			</form>
-		</div>
-<jsp:include page="footer.jsp"/>		
+
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
