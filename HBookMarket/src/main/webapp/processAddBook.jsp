@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="com.oreilly.servlet.*" %>
 <%@ page import="com.oreilly.servlet.multipart.*" %>
 <%@ page import="java.util.*" %>			
 <%@ page import="dto.Book"%>
 <%@ page import="dao.BookRepository"%>
+<%@ page import="org.apache.commons.fileupload.*" %>
+<%@ page import="java.io.*" %>
 <!DOCTYPE html>
 
 <%	
@@ -11,11 +13,11 @@ request.setCharacterEncoding("UTF-8");
 
 String filename = "";
 String realFolder = "C:\\upload"; 			
-int maxSize = 5*1024*1024; 					
+int maxSize = 5 * 1024 * 1024; 					
 String encType = "utf-8"; 					
 
-MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encType, 
-		new DefaultFileRenamePolicy());
+MultipartRequest multi = new MultipartRequest(request, realFolder, 
+		maxSize, encType, new DefaultFileRenamePolicy());  
 
 	
 	String bookId=multi.getParameter("BookId");
@@ -51,7 +53,7 @@ MultipartRequest multi = new MultipartRequest(request, realFolder, maxSize, encT
 	
 	else pages=Long.valueOf(totalPages);
 	
-	Enumeration files = multi.getFileNames();			//ÆÄÀÏ ¹Þµµ·Ï getFileNames() ¸Þ¼Òµå ÀÛ¼º
+	Enumeration files = multi.getFileNames();			//íŒŒì¼ ë°›ë„ë¡ getFileNames() ë©”ì†Œë“œ ìž‘ì„±
 	String fname = (String)files.nextElement();			
 	String fileName = multi.getFilesystemName(fname);
 	
