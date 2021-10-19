@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Book" %>
 <%@page import="dao.BookRepository"%>
-<jsp:useBean id="BookDAO" class="dao.BookRepository" scope="session"/>
+
 <html>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <head>
-<title>µµº≠ ∏Ò∑œ</title>
+<title>ÎèÑÏÑú Î™©Î°ù</title>
 </head>    
 <body>
 
 <%@ include file="menu.jsp" %>
 
-<%! String greeting="µµº≠ ∏Ò∑œ";%>
+<%! String greeting="ÎèÑÏÑú Î™©Î°ù";%>
 <div class="jumbotron">
     <div class="container">
         <h1 class="display-3">
@@ -25,21 +25,21 @@
 	BookRepository dao = BookRepository.getInstance();
 	ArrayList<Book> listOfBooks = dao.getAllProducts();
 	%>
-        <style> img{float : left}</style>
         <div class="col" align="left">
-            <%for(int i=0;i<listOfBooks.size();i++){
-                Book book=listOfBooks.get(i);
+            <%
+            	for(int i=0;i<listOfBooks.size(); i++){
+                Book book = listOfBooks.get(i);
             %>
             <div class="col-md-4">
-              	<img src="c:/upload/<%=book.getFilename()%>" style= "width : 40%">      <%--¿ÃπÃ¡ˆ ∆˜«‘ --%>
+              	<img src="c:/upload/<%=book.getFilename()%>" style= "width : 40%">      <%--Ïù¥ÎØ∏ÏßÄ Ìè¨Ìï® --%>
                 <h3>[<%=book.getCategory() %>] <%=book.getName() %></h3><p>
                 <p>
                 <%=book.getDescription()%>
-                <a href="./product.jsp?id=<%=book.getBookId() %>"
-                class="btn btn-secondary rold="button">ªÛºº ¡§∫∏ &raquo</a>
                 <p><%=book.getAuthor() %>|<%=book.getPublisher() %>|<%=book.getprice() %>
+                <p><a href="./product.jsp?id=<%=book.getBookId() %>"
+                class="btn btn-secondary role="button">ÏÉÅÏÑ∏ Ï†ïÎ≥¥</a>
             </div>
-            <hr>
+           
             <%} %>            
         </div> 
 <%@ include file="footer.jsp" %>

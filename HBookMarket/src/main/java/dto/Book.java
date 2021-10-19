@@ -3,6 +3,8 @@ package dto;
 import java.io.Serializable;
 
  public class Book implements Serializable{
+	 
+	private static final long serialVersionUID = -4274700572038677000L;
  
 	private String bookId;			//도서 id
     private String name;			//도서이름
@@ -67,7 +69,16 @@ import java.io.Serializable;
         this.bookId = bookId;
     }
     
-    public String getAuthor() {
+    public Integer getPrice() {
+		return price;
+	}
+	public void setPrice(Integer price) {
+		this.price = price;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	public String getAuthor() {
         return author;
     }
  

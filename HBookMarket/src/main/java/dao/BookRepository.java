@@ -6,9 +6,8 @@ import dto.Book;
 
 public class BookRepository {
     
-	ArrayList<Book>listOfBooks=new ArrayList<Book>();
-
-		private static BookRepository instance= new BookRepository();
+	private ArrayList<Book>listOfBooks=new ArrayList<Book>();
+	private static BookRepository instance= new BookRepository();
 		
 		public static BookRepository getInstance() {
 			return instance;

@@ -1,44 +1,44 @@
 <!DOCTYPE html>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="dto.Book" %>
 <%@page import="dao.BookRepository" %>
-<jsp:useBean id="productDAO" class="dao.BookRepository" scope="session"/>
+<jsp:useBean id="bookDAO" class="dao.BookRepository" scope="session"/>
 <html>
 <head>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
-<title>»óÇ° »ó¼¼ Á¤º¸</title>
+<title>ìƒí’ˆ ìƒì„¸ ì •ë³´</title>
 </head>
 <body>
     <jsp:include page="menu.jsp"/>
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">»óÇ° Á¤º¸</h1>
+            <h1 class="display-3">ë„ì„œ ì •ë³´</h1>
         </div>
     </div>
     <%
         String id=request.getParameter("id");
-		BookRepository dao=BookRepository.getInstance();
-    	Book book=productDAO.getBookById(id);
+		BookRepository dao= BookRepository.getInstance();
+    	Book book = dao.getBookById(id);
     %>
     <div class="container">
         <div class="row">
         <div class="col-md-5">
-  			<img src="c:/upload/<%=book.getFilename()%>" style= "width: 20%">      <%--ÀÌ¹ÌÁö Æ÷ÇÔ --%>
+  			<img src="c:/upload/<%=book.getFilename()%>" style= "width: 80%">      <%--ì´ë¯¸ì§€ í¬í•¨ --%>
         		</div>
             <div class="col-md-6">
                 <h3><%=book.getName()%></h3>
                 <p><%=book.getDescription()%>
-                <p><b>µµ¼­ ÄÚµå:</b><span class="badge badge-danger">
+                <p><b>ë„ì„œ ì½”ë“œ:</b><span class="badge badge-danger">
                 
                 <%=book.getBookId() %></span>
-                <p><b>ÃâÆÇ»ç</b> : <%=book.getPublisher()%>
-                <p><b>ÀúÀÚ</b> : <%=book.getAuthor() %>
-                <p><b>Àç°í¼ö</b> : <%=book.getStock() %>
-                <p><b>ÃÑ ÆäÀÌÁö¼ö</b> : <%=book.getPages() %>
-                <p><b>ÃâÆÇÀÏ</b> : <%=book.getReleaseDate() %>
-                <h4><%=book.getprice()%>¿ø</h4>
-                <p> <a href="#" class="btn btn-info"> µµ¼­ ÁÖ¹®&raquo</a>
-                 <a href="./products.jsp" class="btn btn-secondary">µµ¼­ ¸ñ·Ï &raquo</a>
+                <p><b>ì €ìž</b> : <%=book.getAuthor() %>
+                <p><b>ì¶œíŒì‚¬</b> : <%=book.getPublisher()%>
+                <p><b>ì¶œíŒì¼</b> : <%=book.getReleaseDate() %>
+                <p><b>ì´ íŽ˜ì´ì§€ìˆ˜</b> : <%=book.getPages() %>
+                <p><b>ìž¬ê³ ìˆ˜</b> : <%=book.getStock() %>
+                <h4><%=book.getprice()%>ì›</h4>
+                <p> <a href="#" class="btn btn-info"> ë„ì„œ ì£¼ë¬¸&raquo</a>
+                 <a href="./products.jsp" class="btn btn-secondary">ë„ì„œ ëª©ë¡ &raquo</a>
             </div>
                         
         </div> 
