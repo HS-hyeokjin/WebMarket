@@ -1,23 +1,22 @@
-<!DOCTYPE html>  <!-- »óÇ° ¸ñ·Ï Ãâ·Â ÆäÀÌÁö-->
-<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="EUC-KR"%>   
+<!DOCTYPE html>  <!-- ìƒí’ˆ ëª©ë¡ ì¶œë ¥ íŽ˜ì´ì§€-->
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>   
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Product" %>
 <%@ page import="dao.ProductRepository" %>
 
 <html>
 <head>
-<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />           <!-- ºÎÆ®½ºÆ®·¦ Æ÷ÇÔ -->
-<meta charset="EUC-KR">
-<title>»óÇ° ¸ñ·Ï</title>
+<link rel="stylesheet" href="./resources/css/bootstrap.min.css" />           <!-- ë¶€íŠ¸ìŠ¤íŠ¸ëž© í¬í•¨ -->
+<title>ìƒí’ˆ ëª©ë¡</title>
 </head>
 <body>
 	<jsp:include page="menu.jsp" />
 	<div class="jumbotron">
   		<div class="container">
- 			<h1 class = "display-3">»óÇ° ¸ñ·Ï</h1>
+ 			<h1 class = "display-3">ìƒí’ˆ ëª©ë¡</h1>
  		</div>
  	</div>
- 	<!--±âÁ¸¿¡ ÀÛ¼­µÈ useBean »èÁ¦/ProductRepository Å¬·¡½ºÀÇ °´Ã¼ º¯¼ö instance¸¦ È£ÃâÇÏ´Â getInstance()¸Þ¼Òµå ÀÛ¼º, ÀÌ¸¦ ÅëÇà getAllProducts()¸Þ¼Òµå¸¦ È£ÃâÇÏ¿© ¹ÝÇÑ°á°ú°ªÀ» ListOfProducts¿¡ ÀúÀå-->
+ 	<!--ê¸°ì¡´ì— ìž‘ì„œëœ useBean ì‚­ì œ/ProductRepository í´ëž˜ìŠ¤ì˜ ê°ì²´ ë³€ìˆ˜ instanceë¥¼ í˜¸ì¶œí•˜ëŠ” getInstance()ë©”ì†Œë“œ ìž‘ì„±, ì´ë¥¼ í†µí–‰ getAllProducts()ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•˜ì—¬ ë°˜í•œê²°ê³¼ê°’ì„ ListOfProductsì— ì €ìž¥-->
  	<% 
     	ProductRepository dao = ProductRepository.getInstance();        
     	ArrayList<Product> listOfProducts = dao.getAllProducts();        
@@ -29,12 +28,12 @@
   				Product product = listOfProducts.get(i);
   		%>
   		<div class="col-md-4">
-  		<img src="c:/upload/<%=product.getFilename()%>" style="width: 100%">      <%--ÀÌ¹ÌÁö Æ÷ÇÔ --%>
+  		<img src="c:/upload/<%=product.getFilename()%>" style="width: 100%">      <%--ì´ë¯¸ì§€ í¬í•¨ --%>
   		<h3><%=product.getPname() %></h3>
   		<p><%=product.getDescription()%>
-  		<p><%=product.getUnitPrice() %>¿ø
-  		<p><a href="./product.jsp?id=<%=product.getProductId()%>" %>    <%-- »óÇ° »ó¼¼Á¤º¸ ¹öÆ° --%>
-  		<class="btn btn-secondary" role="button"> »ó¼¼ Á¤º¸ &raquo;></a>
+  		<p><%=product.getUnitPrice() %>ì›
+  		<p><a href="./product.jsp?id=<%=product.getProductId()%>" %>    <%-- ìƒí’ˆ ìƒì„¸ì •ë³´ ë²„íŠ¼ --%>
+  		<class="btn btn-secondary" role="button"> ìƒì„¸ ì •ë³´ &raquo;></a>
   		</div>
   		<%
   		}
