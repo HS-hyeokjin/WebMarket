@@ -1,6 +1,6 @@
-<%-- 상품 등록 페이지 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +29,9 @@
 </script>
 </head>
 <body>
-	<jsp:include page="menu.jsp" />
+	<fmt:setLocale value="<%=request.getParameter("language") %>"/>
+	<fmt:bundle basename="bundle.message" >
+	<jsp:include page="header.jsp" />
 
 	<div class="main">
 		<div class="banner">
@@ -40,51 +42,54 @@
 
 		<div class="content">
 			<div class="container">
+				<div class="text-right">
+					<a href="?language">Korean</a> | <a href="?language">English</a>
+				</div>
 				<form name="newProduct" action="./processAddProduct.jsp"
 					class="form-horizontal" method="post" enctype="multipart/form-data">
 					<div class="inputRow">
-						<label for="productId">상품 코드</label> <input type="text"
+						<label for="productId"><fmt:message key="productId" /> </label> <input type="text"
 							name="productId" id="productId">
 					</div>
 					<div class="inputRow">
-						<label for="name">상품 명</label> <input type="text" name="name" id ="name">
+						<label for="name"><fmt:message key="pname" /></label> <input type="text" name="name" id ="name">
 					</div>
 					<div class="inputRow">
-						<label for="unitPrice">가격</label> <input type="text" name="unitPrice" id="unitPrice">
+						<label for="unitPrice"><fmt:message key="unitPrice" /></label> <input type="text" name="unitPrice" id="unitPrice">
 					</div>
 					<div class="inputRow">
-						<label for="description">상세 정보</label>
+						<label for="description"><fmt:message key="description" /></label>
 						<textarea name="description" cols="50" rows="2" id="description">
 							</textarea>
 					</div>
 					<div class="inputRow">
-						<label for="manufacturer">제조사</label> <input type="text" name="manufacturer" id="manufacturer">
+						<label for="manufacturer"><fmt:message key="manufacturer" /></label> <input type="text" name="manufacturer" id="manufacturer">
 					</div>
 					<div class="inputRow">
-						<label for="category">분류</label> <input type="text" name="category" id="category">
+						<label for="category"><fmt:message key="category" /></label> <input type="text" name="category" id="category">
 					</div>
 					<div class="inputRow">
-						<label for="unitStock">재고 수</label> <input type="text" name="unitInStock" id="unitStock">
+						<label for="unitStock"><fmt:message key="unitsInStock" /></label> <input type="text" name="unitInStock" id="unitStock">
 					</div>
 					<div class="inputRow">
-						<label>상태</label> 
-						<label><input type="radio" name="condition" value="New"> 신규 제품</label> 
-						<label><input type="radio" name="condition" value="Old"> 중고 제품</label>
-						<label><input type="radio" name="condition" value="Refurbished"> 재생 제품</label>
+						<label><fmt:message key="condition" /></label> 
+						<label><input type="radio" name="condition" value="New"> <fmt:message key="condition_New" /></label> 
+						<label><input type="radio" name="condition" value="Old"> <fmt:message key="condition_Old" /></label>
+						<label><input type="radio" name="condition" value="Refurbished"> <fmt:message key="condition_Refurbished" /></label>
 					</div>
 					<div class="inputRow">
-						<label for="productImage">이미지</label>
+						<label for="productImage"><fmt:message key="productImage" /></label>
 						<input type="file" name="productImage" id="productImage">
 					</div>
 					<div class="inputRow">
-						<input type="button" value="등록" class="btn btn-secondary" onclick="CheckAddProduct()">
+						<input type="button" value="<fmt:message key="button" />" class="btn btn-secondary" onclick="CheckAddProduct()">
 					</div>
 				</form>
 				<hr>
 			</div>
 		</div>
 	</div>
-
+	</fmt:bundle>
 	<jsp:include page="footer.jsp" />
 </body>
 </html>
