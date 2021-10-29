@@ -89,7 +89,3 @@
 			</div>
 		</div>
 	</div>
-	</fmt:bundle>
-	<jsp:include page="footer.jsp" />
-</body>
-</html>
