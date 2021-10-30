@@ -26,7 +26,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="header.jsp"/>
+	<jsp:include page="menu.jsp"/>
 	
 	<div class="main">
 		<div class="banner">
