@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="dto.Book" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <jsp:useBean id="productDAO" class="dao.BookRepository" scope="session"/>
 <!DOCTYPE html>
 <meta charset="UTF-8">
@@ -9,6 +11,8 @@
 <title>도서 등록</title>
 </head>
 <body>
+<fmt:setLocale value='<%= request.getParameter("language") %>' />
+<fmt:bundle basename= "bundle.message">
 	<jsp:include page="menu.jsp"/>
 	<div class="jumbotron">
 		<div class="container">
@@ -81,9 +85,9 @@
 				<div class="form-group row">
 				<label class="col-sm-2">상태</label>
 				<div class="col-sm-5">
-					<input type="radio" name="condition" value="New ">신규제품
-					<input type="radio" name="condition" value="Old"> 중고 제품
-					<input type="radio" name="condition" value="Refurbished"> 재생 제품
+					<input type="radio" name="condition" value="New">신규 도서
+					<input type="radio" name="condition" value="Old"> 중고 도서
+					<input type="radio" name="condition" value="Refurbished"> E-Book
  				</div>
 			</div>
 				<div class="form-group row">
