@@ -43,8 +43,9 @@
 		<div class="content">
 			<div class="container">
 				<div class="text-right">
-					<a href="?language">Korean</a> | <a href="?language">English</a>
+					<a href="?language=ko">Korean</a> | <a href="?language=en">English</a>
 				</div>
+				<a href="logout.jsp" class="btn btn-sm btn-success pull-right">logout</a>
 				<form name="newProduct" action="./processAddProduct.jsp"
 					class="form-horizontal" method="post" enctype="multipart/form-data">
 					<div class="inputRow">
