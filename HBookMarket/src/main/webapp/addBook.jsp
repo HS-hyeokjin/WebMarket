@@ -4,7 +4,6 @@
 
 <jsp:useBean id="productDAO" class="dao.BookRepository" scope="session"/>
 <!DOCTYPE html>
-<meta charset="UTF-8">
 <html>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <script type="text/javascript" src="./resources/validationjs/validation.js"></script>

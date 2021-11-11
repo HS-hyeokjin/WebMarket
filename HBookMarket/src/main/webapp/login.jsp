@@ -20,14 +20,6 @@
 <div class="container" align="center">
 	<div class="col-md-4 cold-md-offset-4">
 		<h3 class="form-singin-heading">Please sign in</h3>
-		<%
-			String error = request.getParameter("error");
-			if(error != null){
-				out.println("<div class='alert alert-danger'>");
-				out.println("아이디와 비밀번호를 확인해주세요.");
-				out.println("</div>");
-			}
-		%>
 		<form class="form-signin" action="j_security_check" method="post">
 			<div class="form-group">
 				<label for="inputUserName" class="sr-only">User Name</label>
@@ -36,9 +28,18 @@
 			<div class="form-group">
 				<label for="inputPassword" class="sr-only">Password</label>
 				<input type="password" class="form-control" placeholder="Password" name='j_password' required>
+				<p> </p>
 				<button class="btn btn btn-lg btn-success btn-block" type="submit">로그인</button>
 			</div>
 		</form>
+				<%
+			String error = request.getParameter("error");
+			if(error != null){
+				out.println("<div class='alert alert-danger'>");
+				out.println("아이디와 비밀번호를 확인해주세요.");
+				out.println("</div>");
+			}
+		%>
 	</div>
 </div>
 

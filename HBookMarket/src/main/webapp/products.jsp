@@ -2,8 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="dto.Book" %>
-<%@page import="dao.BookRepository"%>
-
+<%@ page import="dao.BookRepository"%>
+<%@ page errorPage="exceptionNoPage.jsp" %>
 <html>
 <link rel="stylesheet" href="./resources/css/bootstrap.min.css" />
 <head>
