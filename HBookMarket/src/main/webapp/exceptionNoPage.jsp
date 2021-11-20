@@ -24,7 +24,6 @@ String main = "요청하신 페이지가 존재하지 않습니다.";
 	<div class="text-center">
 		<p><%=request.getRequestURL() %>?<%=request.getQueryString() %>
 		<p> <a href="products.jsp" class="btn btn-secondary"> 상품 목록 &raquo;</a>
-		<%--<h3><%@ include file="date.jsp" %></h3>--%>
 	</div>
 </div>
 <%@ include file="footer.jsp" %>
