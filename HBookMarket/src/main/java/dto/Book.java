@@ -18,7 +18,7 @@ import java.io.Serializable;
     private String ReleaseDate;		//출판일
     private String condition; 		//신상품 중고품 재생품 
     private String filename;		//이미지 파일명
-
+    private int quantity;
     
 
 	public Book() {
@@ -133,5 +133,10 @@ import java.io.Serializable;
     public void setFilename(String filename) {
 		this.filename = filename;
 	}
-    
+    public int getQuantity(){
+        return quantity;
+    }
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
 }

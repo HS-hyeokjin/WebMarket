@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=utf-8" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.ArrayList" %>
-
-
+<%@ page import="dto.Book" %>
+<%@ page import="dao.BookRepository" %>
 <%
 String id = request.getParameter("id");
 if(id == null || id.trim().equals("")){
@@ -9,33 +9,33 @@ if(id == null || id.trim().equals("")){
 	return;
 }
 
-ProductRepository dao = ProductRepository.getInstance();
+BookRepository dao = BookRepository.getInstance();
 
-Product product = dao.getProductById(id);
+Book product = dao.getBookById(id);
 if(product == null){
 	response.sendRedirect("exceptionNoBookId.jsp");	
 }
 
-ArrayList<Product> goodsList = dao.getAllProducts();
-Product goods = new Product();
+ArrayList<Book> goodsList = dao.getAllProducts();
+Book goods = new Book();
 for(int i=0; i<goodsList.size(); i++){
 	goods = goodsList.get(i);
-	if(goods.getProductId().equals(id)){
+	if(goods.getBookId().equals(id)){
 		break;
 	}
 }
 
-ArrayList<Product> list = (ArrayList<Product>) session.getAttribute("carlist");
+ArrayList<Book> list = (ArrayList<Book>) session.getAttribute("carlist");
 if(list == null){
-	list = new ArrayList<Product>();
+	list = new ArrayList<Book>();
 	session.setAttribute("carlist", list);
 }
 
 int cnt = 0;
-Product goodsQnt = new Product();
+Book goodsQnt = new Book();
 for(int i=0; i<list.size(); i++){
 	goodsQnt = list.get(i);
-	if(goodsQnt.getProductId().equals(id)){
+	if(goodsQnt.getBookId().equals(id)){
 		cnt++;
 		int orderQuantity = goodsQnt.getQuantity()+1;
 		goodsQnt.setQuantity(orderQuantity);

@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="dto.Product" %>
-<%@ page import="dao.ProductRepository" %>
+<%@ page import="dto.Book" %>
+<%@ page import="dao.BookRepository" %>
 
 <%
 String id = request.getParameter("id");
@@ -10,9 +10,9 @@ if(id == null || id.trim().equals("")){
 	return;
 }
 
-ProductRepository dao = ProductRepository.getInstance();
+BookRepository dao = BookRepository.getInstance();
 
-Product product = dao.getProductById(id);
+Product product = dao.getBookById(id);
 if(product == null){
 	response.sendRedirect("exceptionNoBookId.jsp");	
 }
