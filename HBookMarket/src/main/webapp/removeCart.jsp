@@ -12,16 +12,16 @@ if(id == null || id.trim().equals("")){
 
 BookRepository dao = BookRepository.getInstance();
 
-Product product = dao.getBookById(id);
+Book product = dao.getBookById(id);
 if(product == null){
 	response.sendRedirect("exceptionNoBookId.jsp");	
 }
 
-ArrayList<Product> cartList = (ArrayList<Product>)session.getAttribute("cartlist");
-Product goodsQnt = new Product();
+ArrayList<Book> cartList = (ArrayList<Book>)session.getAttribute("cartlist");
+Book goodsQnt = new Book();
 for(int i=0; i<cartList.size(); i++){
 	goodsQnt = cartList.get(i);
-	if(goodsQnt.getProductId().equals(id)){
+	if(goodsQnt.getBookId().equals(id)){
 		cartList.remove(goodsQnt);
 	}
 }

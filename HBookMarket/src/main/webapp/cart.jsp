@@ -48,15 +48,15 @@ String cartId = session.getId();
 				cartList = new ArrayList<Book>();
 			for(int i=0; i<cartList.size(); i++){
 				Book product = cartList.get(i);
-				int total = product.getUnitPrice() * product.getQuantity();
+				int total = product.getPrice() * product.getQuantity();
 				sum += total;
 			%>
 			<tr>
-				<td><%=product.getProductId()%> - <%=product.getPname() %></td>
-				<td><%=product.getUnitPrice() %></td>
+				<td><%=product.getBookId()%> - <%=product.getName() %></td>
+				<td><%=product.getPrice() %></td>
 				<td><%=product.getQuantity() %></td>
 				<td><%=total %></td>
-				<td><a href="./removeCart.jsp?id=<%=product.getProductId()%>" class="badge badge-danger"> 삭제</a></td>
+				<td><a href="./removeCart.jsp?id=<%=product.getBookId()%>" class="badge badge-danger"> 삭제</a></td>
 				
 			</tr>
 			<%

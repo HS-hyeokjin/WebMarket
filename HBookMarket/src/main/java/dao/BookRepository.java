@@ -15,7 +15,7 @@ public class BookRepository {
     
 		public BookRepository(){
         
-        Book b1=new Book("Num1","HTML5+CSS",15000);
+        Book b1=new Book("ISBN1234","HTML5+CSS",15000);
         b1.setDescription("워드나 PPT문서를 만들수 있나요? 그러면 문제 없습니다. 지금 바로 웹페이지에 도전하세요.");
         b1.setCategory("Hello Coding");
         b1.setPublisher("한빛미디어");
@@ -26,7 +26,7 @@ public class BookRepository {
 		b1.setFilename("Num1.png");
 
         
-        Book b2=new Book("Num2","쉽게 배우는 자바 프로그래밍",27000);
+        Book b2=new Book("ISBN1235","쉽게 배우는 자바 프로그래밍",27000);
         b2.setDescription("객체 지향의 핵심과 자바의 현대적 기능을 다루면서 초보자가 쉽게 학습할 수 있습니다.");
         b2.setCategory("IT모바일");
         b2.setPublisher("한빛아카데미");
@@ -36,7 +36,7 @@ public class BookRepository {
         b2.setReleaseDate("2016/09/01");
         b2.setFilename("Num2.png");
         
-        Book b3=new Book("Num3","스프링4 입문",27000);
+        Book b3=new Book("ISBN1236","스프링4 입문",27000);
         b3.setDescription("스프링은 단순히 사용 방법만 익히는것보다 아키텍쳐를 이해하는게 중요합니다!");
         b3.setCategory("IT모바일");
         b3.setPublisher("한빛미디어");
