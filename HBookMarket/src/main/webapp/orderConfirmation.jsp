@@ -58,7 +58,7 @@ if(cookies != null){
 <div class="container col-8 alert alert-info">
 	<div class="jumbotron">
 		<div class="container">
-			<h1 class="display-3">주문 정보</h1>
+			<h1 class="display-3">영수증</h1>
 		</div>
 	</div>
 
